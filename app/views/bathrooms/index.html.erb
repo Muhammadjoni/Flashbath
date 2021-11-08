@@ -1,0 +1,18 @@
+<div class="container">
+  <ul class="">
+    <% @bathrooms.each do |bathroom| %>
+      <li>
+        <div class="card" style="width: 18rem;">
+          <img src="..." class="card-img-top" alt="...">
+
+            <h3 class="card-title"> <%= bathroom.title %> </h3>
+            <h5 class="card-text"> <%= bathroom.address %> </h5>
+            <p class="card-text"> <%= bathroom.content %> </p>
+            <h5 class="card-title"> <%= bathroom.price %> </h5>
+            <a href="#" class="btn btn-primary"> Take a Bath </a>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+</div>
+   <%# d-flex justify-content-between align-items-center m-5 font-8 %>
