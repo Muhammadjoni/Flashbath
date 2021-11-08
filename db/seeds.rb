@@ -9,15 +9,34 @@
 require "open-uri"
 
 puts "Cleaning up database..."
+User.destroy_all
 Bathroom.destroy_all
 puts "Database cleaned"
 
+puts "Creating the Users"
+p user1 = User.create(
+  first_name: 'John',
+  last_name: 'Wick',
+  email: 'john.wick@badass.com',
+  password: 'donttouchmydog'
+)
 
+p user2 = User.create(
+  first_name: 'The Dark',
+  last_name: 'Knight',
+  email: 'thedarkknight@rises.com',
+  password: 'masterwayne'
+)
+
+puts "Done with the Users Creation"
+
+
+puts "Creating the bathrooms"
 
 p bathroom_one = Bathroom.new(
-  title: 'Light & Spacious Bathroom in London',
+  title: 'Light and Spacious Bathroom in London',
   address: '10 Clifton Gardens London W9 1DT',
-  content: 'This primary bathroom by Gustavson/Dundes Architecture & Design is a perfect example of a dreamy traditional bathroom with a soaking tub, a large shower, and beautiful design details.',
+  content: 'This primary bathroom by Gustavson/Dundes Architecture and Design is a perfect example of a dreamy bathroom.',
   price: 75
 )
 
@@ -25,12 +44,13 @@ file = URI.open('https://www.thespruce.com/thmb/PNzqg5SKB4TKeODZhH1YS15O6as=/958
 
 bathroom_one.photo.attach(io: file, filename: 'bathroom1.jpg', content_type: 'image/jpg')
 
-bathroom_one.save
+bathroom_one.user = user1
+bathroom_one.save!
 
 p bathroom_two = Bathroom.new(
   title: 'Stylish Bathroom Close to River Thames',
   address: '5 Queensmill Road London SW6 6JP',
-  content: 'A large painting is the focus of attention in this modern bathroom by Munger Interiors. All-white decor lets the art speak for itself.',
+  content: 'A large painting is the focus of attention in this modern bathroom by Munger Interiors.',
   price: 65
 )
 
@@ -38,12 +58,13 @@ file = URI.open('https://www.thespruce.com/thmb/Kk39aBVRoJpBJqwbsyBf4FbagJI=/640
 
 bathroom_two.photo.attach(io: file, filename: 'bathroom2.jpg', content_type: 'image/jpg')
 
+bathroom_two.user = user2
 bathroom_two.save
 
 p bathroom_three = Bathroom.new(
   title: 'Luxury Bathroom at St Pancras Clock Tower Guest Suite',
   address: 'Euston Rd London N1C 4QP',
-  content: 'This white, soft modern bathroom by Caden Design Group would look rather ordinary if it wasn`t for the stunning arched windows adding a wonderful detail.',
+  content: 'This white, soft modern bathroom by Caden Design Group would look rather ordinary.',
   price: 150
 )
 
@@ -51,12 +72,13 @@ file = URI.open('https://www.thespruce.com/thmb/23mGUbCINeaYbV7UN8r7zipyMqQ=/958
 
 bathroom_three.photo.attach(io: file, filename: 'bathroom3.jpg', content_type: 'image/jpg')
 
+bathroom_three.user = user1
 bathroom_three.save
 
 p bathroom_four = Bathroom.new(
   title: 'White, soft modern bathroom in Knightsbridge',
   address: 'Euston Rd London N1C 4QP',
-  content: 'If you`re fond of baths, this contemporary bathroom by Duck & Shed should inspire you. This tub is definitely worthy of royalty!',
+  content: 'If you`re fond of baths, this contemporary bathroom by Duck & Shed should inspire you.',
   price: 90
 )
 
@@ -64,12 +86,13 @@ file = URI.open('https://www.thespruce.com/thmb/MLWs44-fe8IIs4fqwA6vJuV7D2s=/958
 
 bathroom_four.photo.attach(io: file, filename: 'bathroom4.jpg', content_type: 'image/jpg')
 
+bathroom_four.user = user2
 bathroom_four.save
 
 p bathroom_five = Bathroom.new(
   title: 'Mediterranean Dream Bathroom With Scalloped Recess in Kensington',
   address: 'Queen`s Gate, South Kensington, London',
-  content: 'An almost circular tub sits in the middle of a mosaic in this Mediterranean bathroom by Fratantoni Luxury Estates. High ceilings gives a cathedral-like feel to this luxurious space.',
+  content: 'An almost circular tub sits in the middle of a mosaic in this Mediterranean bathroom by Fratantoni Luxury.',
   price: 180
 )
 
@@ -77,12 +100,13 @@ file = URI.open('https://www.thespruce.com/thmb/PiatllJcxKsonAncpfSZzHROywM=/804
 
 bathroom_five.photo.attach(io: file, filename: 'bathroom5.jpg', content_type: 'image/jpg')
 
+bathroom_five.user = user1
 bathroom_five.save
 
 p bathroom_six = Bathroom.new(
   title: 'Minimalist Contemporary Dream Bathroom, Chelsea',
   address: '64 Lower Sloane St, London SW1W',
-  content: 'Some people`s dream bathroom is more like this one: contemporary and minimalist. This space by ade architecture is seamless and harmonious.',
+  content: 'Some people`s dream bathroom is more like this one: contemporary and minimalist.',
   price: 110
 )
 
@@ -90,4 +114,5 @@ file = URI.open('https://www.thespruce.com/thmb/0WCqIJ_1C6A0YVDZXPrRuoW14qc=/640
 
 bathroom_six.photo.attach(io: file, filename: 'bathroom6.jpg', content_type: 'image/jpg')
 
+bathroom_six.user = user2
 bathroom_six.save
