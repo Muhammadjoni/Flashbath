@@ -45,7 +45,6 @@ class BathroomsController < ApplicationController
   end
 
   def bathroom_params
-    params.require(:bathroom).permit(:title, :address, :content, :user_id)
+    params.require(:bathroom).permit(:title, :address, :content, :user_id, :photo)
   end
-
 end
