@@ -1,5 +1,7 @@
 class BathroomsController < ApplicationController
   before_action :set_bathroom, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authenticate_user!, only: [:index,:show]
+
   def index
     @bathrooms = Bathroom.all
   end
@@ -13,7 +15,8 @@ class BathroomsController < ApplicationController
 
   def create
     @bathroom = Bathroom.create(bathroom_params)
-    if @bathroom.save
+    @bathroom.user = current_user
+    if @bathroom.save!
       redirect_to @bathroom, notice: 'bathroom was successfully created.'
     else
       render :new
@@ -41,10 +44,10 @@ class BathroomsController < ApplicationController
   private
 
   def set_bathroom
-    @bathroom = bathroom.find(params[:id])
+    @bathroom = Bathroom.find(params[:id])
   end
 
   def bathroom_params
-    params.require(:bathroom).permit(:title, :address, :content, :user_id, :photo)
+    params.require(:bathroom).permit(:title, :address, :content, :photo, :price)
   end
 end
