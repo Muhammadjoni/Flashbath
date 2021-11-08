@@ -1,1 +1,35 @@
-<%= cl_image_tag @bathroom.photo.key, height: 300, width: 400, crop: :fill %>
+
+<div class="container">
+  <p>
+    <strong>Title:</strong>
+    <%= @bathroom.title %>
+  </p>
+
+  <p>
+    <strong>Address:</strong>
+    <%= @bathroom.address %>
+  </p>
+
+  <p>
+    <strong>Content:</strong>
+    <%= @bathroom.content %>
+  </p>
+
+  <p>
+    <strong>Price:</strong>
+    <%= @bathroom.price %>
+  </p>
+
+  <%= cl_image_tag @bathroom.photo.key, height: 300, width: 400, crop: :fill %>
+
+
+
+</div>
+<%= link_to "Edit Your Bathroom", edit_bathroom_path(@bathroom), class: "btn btn-primary"  %>
+
+<%= link_to 'Delete Your Bathroom',
+            bathroom_path(@bathroom),
+            method: :delete,
+            class: 'btn btn-xs btn-danger',
+            data: { confirm: 'Are you sure ?'}
+%>
