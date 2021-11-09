@@ -7,8 +7,8 @@ class BathroomsController < ApplicationController
 
     @markers = @bathrooms.map do |bathroom|
       {
-        ltd: bathroom.latitude,
-        lng: bathroom.longitude,
+        ltd: bathroom.ltd,
+        lng: bathroom.lng,
         info_window: render_to_string(partial: "info_window", locals: { bathroom: bathroom }),
         image_url: helpers.asset_url('https://www.acquaviva.in/images/slider01.jpg')
       }
