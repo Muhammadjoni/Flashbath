@@ -1,35 +1,39 @@
 
-<div class="container">
-  <p>
-    <strong>Title:</strong>
-    <%= @bathroom.title %>
-  </p>
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-6 col-lg-8">
 
-  <p>
-    <strong>Address:</strong>
-    <%= @bathroom.address %>
-  </p>
+      <%= cl_image_tag @bathroom.photo.key, class: 'w-100 rounded' %>
 
-  <p>
-    <strong>Content:</strong>
-    <%= @bathroom.content %>
-  </p>
+      <h1 class="mt-3"><%= @bathroom.title %></h1>
 
-  <p>
-    <strong>Price:</strong>
-    <%= @bathroom.price %>
-  </p>
+      <p>
+        <strong>📍</strong>
+        <%= @bathroom.address %>
+      </p>
 
-  <%= cl_image_tag @bathroom.photo.key, height: 300, width: 400, crop: :fill %>
+      <p>
+        <%= @bathroom.content %>
+      </p>
+    </div>
 
+    <div class="col-12 col-md-6 col-lg-4">
+            <div class="border py-3 px-4 rounded bg-white">
+                <h2 class="mb-3"> <strong><%= @bathroom.price %> €</strong><span>/night</span></h2>
+                <div class="form-group mb-3">
+                  <label for="">Arrival</label>
+                  <input type="text" placeholder="01/01/2020" class="form-control">
+                </div>
 
+                <div class="form-group mb-3">
+                  <label for="">Departure</label>
+                  <input type="text" placeholder="01/01/2020" class="form-control">
+                </div>
 
+                <input type="submit" value="Book now" class="btn btn-primary w-100">
+              </form>
+            </div>
+          </div>
+    </div>
+  </div>
 </div>
-<%= link_to "Edit Your Bathroom", edit_bathroom_path(@bathroom), class: "btn btn-primary"  %>
-
-<%= link_to 'Delete Your Bathroom',
-            bathroom_path(@bathroom),
-            method: :delete,
-            class: 'btn btn-xs btn-danger',
-            data: { confirm: 'Are you sure ?'}
-%>
