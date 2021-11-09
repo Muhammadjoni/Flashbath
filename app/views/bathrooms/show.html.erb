@@ -19,7 +19,7 @@
 
     <div class="col-12 col-md-6 col-lg-4">
             <div class="border py-3 px-4 rounded bg-white">
-                <h2 class="mb-3"> <del class="opacity-50"> <%= (@bathroom.price + 25) %>€</del> <strong> <%= @bathroom.price %>€</strong><span> / night </span></h2>
+                <h2 class="mb-3"> <del style="opacity: 0.5"> <%= (@bathroom.price + 25) %>€</del> <strong> <%= @bathroom.price %>€</strong><span> / night </span></h2>
                 <div class="form-group mb-3">
                   <label for="">Arrival</label>
                   <input type="text" placeholder="01/01/2020" class="form-control">
@@ -28,7 +28,7 @@
                   <label for="">Departure</label>
                   <input type="text" placeholder="01/01/2020" class="form-control">
                 </div>
-                <input type="submit" value="Book now" class="btn btn-primary w-100">
+                <input type="submit" value="Book now" class="button btn btn-gradient rounded-1">
               </form>
             </div>
           </div>
