@@ -21,6 +21,40 @@
   opacity: 0.7;
 }
 
+.card-category {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
+  height: 250px;
+  border-radius: 10px;
+  background-position: center;
+  background-size: cover;
+}
+
+.card-category h3 {
+  font-size: 25px;
+  color: white;
+  text-shadow: whitesmoke;
+  height: 10em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 125px;
+  text-align: center;
+  font-weight: 5px;
+}
+
+.card-category a {
+  color: white;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #d9edf5
+
+}
+
+
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
   .cards {
