@@ -32,10 +32,17 @@ gem 'autoprefixer-rails', '10.2.5'
 gem 'font-awesome-sass'
 gem 'simple_form'
 
+# User "devise" gem to handle all the user actions
 gem 'devise'
 
 gem 'dotenv-rails', groups: [:development, :test]
+
+# Cloudinary gem to handle the image db
 gem 'cloudinary', '~> 1.16.0'
+
+# Geocode gem to handle the geocoding functions
+gem 'geocoder'
+
 
 
 group :development, :test do
