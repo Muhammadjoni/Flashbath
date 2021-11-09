@@ -1,16 +1,25 @@
+<div class="container">
+<h1 class="d-flex justify-content-around my-3"> Our Bathrooms Selection</h1>
+  <div class="row ">
+      <div class="cards">
+        <% @bathrooms.each do |bathroom| %>
+              <div class="card">
+                <div class="card-img" style="background-image:
+                      linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)),
+                      url(<%= cl_image_path bathroom.photo.key %>)" >
+                </div>
 
-    <div class="cards m-2 p-3">
-      <% @bathrooms.each do |bathroom| %>
-            <div class="card-category" style="width: 18rem; ">
-              <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title"><%= bathroom.title %></h5>
+                  <p class="card-text"><%= bathroom.content %></p>
 
-              <h3> <%= bathroom.title %> </h3>
-              <h5> <%= bathroom.address %> </h5>
-              <p> <%= bathroom.content %> </p>
-              <h5> <%=bathroom.price %> </h5>
-              <a href="#" class="btn btn-primary"> Take a Bath </a>
-            </div>
-      <% end %>
-    </div>
-
-   <%# d-flex justify-content-between align-items-center m-5 font-8 %>
+                  <div class="d-flex justify-content-between">
+                    <p class="card-text"><strong><%= bathroom.price %> € </strong></p>
+                    <%= link_to "Take a Bath", bathroom_path(bathroom), class: "btn btn-primary rounded-1" %>
+                  </div>
+                </div>
+              </div>
+        <% end %>
+      </div>
+  </div>
+</div>
