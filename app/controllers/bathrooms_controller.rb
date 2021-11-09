@@ -9,7 +9,7 @@ class BathroomsController < ApplicationController
       {
         ltd: bathroom.latitude,
         lng: bathroom.longitude,
-        info_window: render_to_string(partial: "info_window", locals: { bathroom: bathroom }),
+        info_window: render_to_string(partial: "info_window", locals: { bathroom: bathroom })
         # image_url: helpers.asset_url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpg6GFI89o13-OgRqluG6HwghoFoLTHomjSA&usqp=CAU')
       }
     end
@@ -24,6 +24,8 @@ class BathroomsController < ApplicationController
 
   def create
     @bathroom = Bathroom.create(bathroom_params)
+    @bathroom.user = current_user
+
     if @bathroom.save
       redirect_to @bathroom, notice: 'bathroom was successfully created.'
     else
@@ -56,7 +58,7 @@ class BathroomsController < ApplicationController
   end
 
   def bathroom_params
-    params.require(:bathroom).permit(:title, :address, :photo, :content, :user_id)
+    params.require(:bathroom).permit(:title, :address, :photo, :content, :price)
   end
 
 end
