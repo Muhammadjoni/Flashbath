@@ -3,7 +3,7 @@
   <div class="row justify-content-center">
     <div class="col-12 col-md-6 col-lg-8">
 
-      <%= cl_image_tag @bathroom.photo.key, class: 'w-100 rounded' %>
+      <%= cl_image_tag @bathroom.photo.key, class: 'w-75 rounded' %>
 
       <h1 class="mt-3"><%= @bathroom.title %></h1>
 
@@ -19,18 +19,16 @@
 
     <div class="col-12 col-md-6 col-lg-4">
             <div class="border py-3 px-4 rounded bg-white">
-                <h2 class="mb-3"> <strong><%= @bathroom.price %> €</strong><span>/night</span></h2>
+                <h2 class="mb-3"> <del style="opacity: 0.5"> <%= (@bathroom.price + 25) %>€</del> <strong> <%= @bathroom.price %>€</strong><span> / night </span></h2>
                 <div class="form-group mb-3">
                   <label for="">Arrival</label>
                   <input type="text" placeholder="01/01/2020" class="form-control">
                 </div>
-
                 <div class="form-group mb-3">
                   <label for="">Departure</label>
                   <input type="text" placeholder="01/01/2020" class="form-control">
                 </div>
-
-                <input type="submit" value="Book now" class="btn btn-primary w-100">
+                <input type="submit" value="Book now" class="button btn btn-gradient rounded-1">
               </form>
             </div>
           </div>
