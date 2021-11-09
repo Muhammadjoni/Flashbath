@@ -1,9 +1,18 @@
 class BathroomsController < ApplicationController
   before_action :set_bathroom, only: [:show, :edit, :update, :destroy]
-  skip_before_action :authenticate_user!, only: [:index,:show]
+  skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
     @bathrooms = Bathroom.all
+
+    @markers = @bathrooms.map do |bathroom|
+      {
+        ltd: bathroom.ltd,
+        lng: bathroom.lng,
+        info_window: render_to_string(partial: "info_window", locals: { bathroom: bathroom }),
+        image_url: helpers.asset_url('https://www.acquaviva.in/images/slider01.jpg')
+      }
+    end
   end
 
   def show
@@ -15,8 +24,7 @@ class BathroomsController < ApplicationController
 
   def create
     @bathroom = Bathroom.create(bathroom_params)
-    @bathroom.user = current_user
-    if @bathroom.save!
+    if @bathroom.save
       redirect_to @bathroom, notice: 'bathroom was successfully created.'
     else
       render :new
@@ -33,11 +41,11 @@ class BathroomsController < ApplicationController
 
   def destroy
     @bathroom.destroy
-    redirect_to bathrooms_path
+    redirect_to @bathroom
   end
 
   def my_rents
-
+    @bathroom
   end
 
 
@@ -48,6 +56,7 @@ class BathroomsController < ApplicationController
   end
 
   def bathroom_params
-    params.require(:bathroom).permit(:title, :address, :content, :photo, :price)
+    params.require(:bathroom).permit(:title, :address, :photo, :content, :user_id)
   end
+
 end

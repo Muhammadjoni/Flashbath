@@ -1,18 +1,50 @@
 <div class="container">
-  <ul class="">
-    <% @bathrooms.each do |bathroom| %>
-      <li>
-        <div class="card" style="width: 18rem;">
-          <img src="..." class="card-img-top" alt="...">
+  <div class="header d-flex justify-content-around my-3">Our Bathrooms Selection</div>
+    <div class="row">
+      <div class="col-8">
+        <div class="cards">
+          <% @bathrooms.each do |bathroom| %>
+                <div class="card">
+                  <div class="card-img" style="background-image:
+                        linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)),
+                        url(<%= cl_image_path bathroom.photo.key %>)" >
+                  </div>
 
-            <h3 class="card-title"> <%= bathroom.title %> </h3>
-            <h5 class="card-text"> <%= bathroom.address %> </h5>
-            <p class="card-text"> <%= bathroom.content %> </p>
-            <h5 class="card-title"> <%= bathroom.price %> </h5>
-            <a href="#" class="btn btn-primary"> Take a Bath </a>
+                  <div class="card-body">
+                    <h5 class="card-title"><%= bathroom.title %></h5>
+                    <p class="card-text"><%= bathroom.content %></p>
+
+                    <div class="d-flex justify-content-between">
+                      <p class="card-text"><strong><%= bathroom.price %> € </strong></p>
+                      <%= link_to "Take a Bath", bathroom_path(bathroom), class: "button btn btn-gradient rounded-1" %>
+                    </div>
+                  </div>
+                </div>
+          <% end %>
         </div>
-      </li>
-    <% end %>
-  </ul>
-</div>
+      </div>
+      <div class="col-4">
+        <div
+          id="map"
+          style="width: 100%; height: 100vh; position: sticky; top: 0"
+          data-markers="<%= @markers.to_json %>"
+          data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+        </div>
+      </div>
+    </div>
+  </div>
+
    <%# d-flex justify-content-between align-items-center m-5 font-8 %>
+
+
+  <div class=" footer">
+    <div class="footer-links">
+      <a href="https://www.instagram.com/bathrooms_of_insta/"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.facebook.com/LuxuryBathroomsBlog/"><i class="fab fa-facebook"></i></a>
+      <a href="https://twitter.com/bathroomsluxury"><i class="fab fa-twitter"></i></a>
+    </div>
+    <div class="footer-copyright">
+      <i class="fas fa-at"></i> <a href="mailto:flashbath@flashbath.com">Contact Us</a>
+    </div>
+  </div>
+</div>
