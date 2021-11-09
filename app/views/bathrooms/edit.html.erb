@@ -1,8 +1,11 @@
+<h1>Editing Your Bathroom</h1>
+
 <%= simple_form_for(@bathroom) do |f| %>
   <%= f.input :title %>
   <%= f.input :address %>
   <%= f.input :content %>
   <%= f.input :price %>
   <%= f.input :photo, as: :file %>
-  <%= f.button :submit, 'Add Your Bathroom', class: "btn btn-primary" %>
+  <%= f.button :submit, 'Confirm Editing', class: "btn btn-primary" %>
+  <%= f.button :submit, 'Delete Your Bathroom', class: "btn btn-danger" %>
 <% end %>
