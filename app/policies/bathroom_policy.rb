@@ -26,6 +26,10 @@ class BathroomPolicy < ApplicationPolicy
     admin_or_owner?
   end
 
+  def my_rents?
+    true
+  end
+
   private
 
   def admin_or_owner?
