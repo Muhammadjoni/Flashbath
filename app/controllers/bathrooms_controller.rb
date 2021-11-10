@@ -3,7 +3,7 @@ class BathroomsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @bathrooms = Bathroom.all
+    @bathrooms = policy_scope(Bathroom).order(created_at: :asc)
 
     @markers = @bathrooms.map do |bathroom|
       {
@@ -16,15 +16,18 @@ class BathroomsController < ApplicationController
   end
 
   def show
+    authorize @bathroom
   end
 
   def new
     @bathroom = Bathroom.new
+    authorize @bathroom
   end
 
   def create
     @bathroom = Bathroom.create(bathroom_params)
     @bathroom.user = current_user
+    authorize @bathroom
 
     if @bathroom.save
       redirect_to @bathroom, notice: 'bathroom was successfully created.'
@@ -34,16 +37,19 @@ class BathroomsController < ApplicationController
   end
 
   def edit
+    authorize @bathroom
   end
 
   def update
     @bathroom.update(bathroom_params)
     redirect_to @bathroom
+    authorize @bathroom
   end
 
   def destroy
     @bathroom.destroy
     redirect_to @bathroom
+    authorize @bathroom
   end
 
   def my_rents
