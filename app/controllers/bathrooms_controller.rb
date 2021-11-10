@@ -31,7 +31,11 @@ class BathroomsController < ApplicationController
       @average = 0
     end
 
-    @display_form = current_user.bookings.where(bathroom: @bathroom).size.positive?
+    if user_signed_in?
+      @display_form = current_user.bookings.where(bathroom: @bathroom).size.positive?
+    else
+      @display_form = false
+    end
 
     authorize @bathroom
   end
@@ -72,7 +76,7 @@ class BathroomsController < ApplicationController
   def my_rents
     @bathrooms = current_user.bathrooms
     authorize Bathroom.new
-  end
+s  end
 
 
   private
