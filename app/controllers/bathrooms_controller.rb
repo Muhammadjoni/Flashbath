@@ -24,9 +24,16 @@ class BathroomsController < ApplicationController
     }]
 
     @review = Review.new
-    @average = @bathroom.reviews.map(&:rating).sum / @bathroom.reviews.size
-    authorize @bathroom
 
+    if @bathroom.reviews.size.positive?
+      @average = @bathroom.reviews.map(&:rating).sum / @bathroom.reviews.size
+    else
+      @average = 0
+    end
+
+    @display_form = current_user.bookings.where(bathroom: @bathroom).size.positive?
+
+    authorize @bathroom
   end
 
   def new
@@ -64,6 +71,7 @@ class BathroomsController < ApplicationController
 
   def my_rents
     @bathrooms = current_user.bathrooms
+    authorize Bathroom.new
   end
 
 
