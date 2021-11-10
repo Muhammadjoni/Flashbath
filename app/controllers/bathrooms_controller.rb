@@ -76,8 +76,7 @@ class BathroomsController < ApplicationController
   def my_rents
     @bathrooms = current_user.bathrooms
     authorize Bathroom.new
-s  end
-
+  end
 
   private
 
