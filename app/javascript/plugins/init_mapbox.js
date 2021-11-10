@@ -29,6 +29,7 @@ const initMapbox = () => {
     });
 
     const markers = JSON.parse(mapElement.dataset.markers);
+    console.log(markers)
     markers.forEach((marker) => {
 
       // Create an instance of popup

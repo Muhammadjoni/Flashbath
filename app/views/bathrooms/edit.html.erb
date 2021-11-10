@@ -1,11 +1,17 @@
-<h1>Editing Your Bathroom</h1>
-
-<%= simple_form_for(@bathroom) do |f| %>
-  <%= f.input :title %>
-  <%= f.input :address %>
-  <%= f.input :content %>
-  <%= f.input :price %>
-  <%= f.input :photo, as: :file %>
-  <%= f.button :submit, 'Confirm Editing', class: "btn btn-primary" %>
-  <%= f.button :submit, 'Delete Your Bathroom', class: "btn btn-danger" %>
-<% end %>
+<div class="container">
+  <div class="row justify-content-center align-items-center">
+    <div class="col-4">
+      <%= simple_form_for(@bathroom) do |f| %>
+            <%= f.input :title %>
+            <%= f.input :address %>
+            <%= f.input :content %>
+            <%= f.input :price %>
+            <%= f.input :photo, as: :file %>
+            <%= f.button :submit, 'Confirm Editing', class: "button btn btn-gradient rounded-1" %>
+      <% end %>
+    </div>
+    <div class="col-8">
+      <img src="https://images.unsplash.com/photo-1507652313519-d4e9174996dd?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8YmF0aHJvb218ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60" alt="Full Size Background Image"/>
+    </div>
+  </div>
+</div>
