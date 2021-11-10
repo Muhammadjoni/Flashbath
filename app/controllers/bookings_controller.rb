@@ -3,30 +3,35 @@ class BookingsController < ApplicationController
   def create
   # @bathroom = Bathroom.create(bathroom_params)
   # @bathroom.user = current_user
-  # @booking = Booking.new(booking_params)
-  # @bathroom = Bathroom.find(params[:bathroom_id])
+  @booking = Booking.new(booking_params)
+  @bathroom = Bathroom.find(params[:bathroom_id])
 
-  # @booking.bathroom = @bathroom
+  @booking.bathroom = @bathroom
 
-  # @bathroom.user = current_user
+  @booking.user = current_user
+
+  authorize @booking
   # @thread = current_user.threads.find params[:id]
   # @thread.messages.create! :text => params[:text]
     if @booking.save
-      redirect_to bathroom_bookings_path
+      redirect_to my_bookings_bookings_path
     else
       render :new
     end
   end
 
-  def destroy
-    @booking.destroy
-    redirect_to @booking.bathroom
-  end
 
   def my_bookings
-
+    authorize Booking.new
+    @bookings = current_user.bookings
   end
 
+  def destroy
+    authorize @booking
+
+    @booking.destroy
+    redirect_to @booking
+  end
 
   private
 

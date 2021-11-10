@@ -16,7 +16,7 @@ class BathroomsController < ApplicationController
   end
 
   def show
-
+    @booking = Booking.new
     @markers = [{
       ltd: @bathroom.latitude,
       lng: @bathroom.longitude,
@@ -42,7 +42,7 @@ class BathroomsController < ApplicationController
     if @bathroom.save
       redirect_to @bathroom, notice: 'bathroom was successfully created.'
     else
-      render :new
+      render :news
     end
   end
 
