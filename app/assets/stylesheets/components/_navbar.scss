@@ -8,5 +8,36 @@
 }
 
 .navbar-lewagon .navbar-brand img {
+  display: flex;
+  align-items: center;
   width: 100px;
+  align-items: center;
+}
+.navbar-brand{
+  opacity: 0.85;
+}
+
+.navbar-brand:hover {
+  opacity: 1;
+  border-radius: 20%;
+  background: linear-gradient(#72b8d3, #3a7a94);
+  color: white;
+  transition: 0.5s;
+}
+.nav-link:hover {
+  background-color:#72b8d3;
+  border-radius: 10%;
+  transition: 0.5s;
+  padding-inline-end: 20px;
+}
+#navbarDropdown {
+  width: 65px;
+}
+.navbar-nav {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
 }
