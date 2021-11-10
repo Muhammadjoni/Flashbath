@@ -16,9 +16,17 @@ class BathroomsController < ApplicationController
   end
 
   def show
+
+    @markers = [{
+      ltd: @bathroom.latitude,
+      lng: @bathroom.longitude,
+      info_window: render_to_string(partial: "info_window", locals: { bathroom: @bathroom })
+    }]
+
     @review = Review.new
     @average = @bathroom.reviews.map(&:rating).sum / @bathroom.reviews.size
     authorize @bathroom
+
   end
 
   def new
