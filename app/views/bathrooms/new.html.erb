@@ -1,12 +1,14 @@
 <div class="container">
-  <div divclass="row justify-content-center">
-    <%= simple_form_for(@bathroom) do |f| %>
-      <%= f.input :title %>
-      <%= f.input :address %>
-      <%= f.input :content %>
-      <%= f.input :price %>
-      <%= f.input :photo, as: :file %>
-      <%= f.button :submit, 'Add Your Bathroom', class: "btn btn-primary" %>
-    <% end %>
+  <div class="row justify-content-center">
+    <div class="col-6">
+      <%= simple_form_for(@bathroom) do |f| %>
+        <%= f.input :title %>
+        <%= f.input :address %>
+        <%= f.input :content %>
+        <%= f.input :price %>
+        <%= f.input :photo, as: :file %>
+        <%= f.button :submit, 'Add Your Bathroom',  class: "btn btn-primary" %>
+      <% end %>
+    </div>
   </div>
 </div>
