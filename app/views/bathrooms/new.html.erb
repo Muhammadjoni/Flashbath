@@ -1,14 +1,20 @@
 <div class="container">
-  <div class="row justify-content-center">
-    <div class="col-6">
+  <div class="row new_bath pt-4">
+    <div class="col-4">
       <%= simple_form_for(@bathroom) do |f| %>
-        <%= f.input :title %>
-        <%= f.input :address %>
-        <%= f.input :content %>
-        <%= f.input :price %>
-        <%= f.input :photo, as: :file %>
-        <%= f.button :submit, 'Add Your Bathroom',  class: "btn btn-primary" %>
-      <% end %>
+            <%= f.input :title %>
+            <%= f.input :address %>
+            <%= f.input :content %>
+            <%= f.input :price %>
+          <%= f.input :photo, as: :file, class: "rounded-4" %>
+          <%= f.button :submit, 'Add Your Bathroom',  class: "btn my-btn" %>
+        <% end %>
+    </div>
+    <div class="col-8 image pl-2">
+      <img src="http://cdn.home-designing.com/wp-content/uploads/2019/01/modern-bathroom-tile.jpg"  alt="bathroom image">
+      <div class="shape shape-start shape-fluid-y text-white">
+        <svg viewBox="0 0 100 1544" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h100v386l-50 772v386H0V0z" fill="currentColor"></path></svg>
+      </div>
     </div>
   </div>
 </div>
