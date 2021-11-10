@@ -16,6 +16,8 @@ class BathroomsController < ApplicationController
   end
 
   def show
+    @review = Review.new
+    @average = @bathroom.reviews.map(&:rating).sum / @bathroom.reviews.size
     authorize @bathroom
   end
 
@@ -53,7 +55,7 @@ class BathroomsController < ApplicationController
   end
 
   def my_rents
-    @bathroom
+    @bathrooms = current_user.bathrooms
   end
 
 
