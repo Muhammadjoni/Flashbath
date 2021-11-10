@@ -9,13 +9,18 @@ class BathroomsController < ApplicationController
       {
         ltd: bathroom.latitude,
         lng: bathroom.longitude,
-        info_window: render_to_string(partial: "info_window", locals: { bathroom: bathroom }),
+        info_window: render_to_string(partial: "info_window", locals: { bathroom: bathroom })
         # image_url: helpers.asset_url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpg6GFI89o13-OgRqluG6HwghoFoLTHomjSA&usqp=CAU')
       }
     end
   end
 
   def show
+    @markers = [{
+      ltd: @bathroom.latitude,
+      lng: @bathroom.longitude,
+      info_window: render_to_string(partial: "info_window", locals: { bathroom: @bathroom })
+    }]
   end
 
   def new
