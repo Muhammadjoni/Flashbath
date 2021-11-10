@@ -43,6 +43,8 @@ gem 'cloudinary', '~> 1.16.0'
 # Geocode gem to handle the geocoding functions
 gem 'geocoder'
 
+# Pundit gem
+gem 'pundit'
 
 
 group :development, :test do
