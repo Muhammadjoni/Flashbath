@@ -1,13 +1,18 @@
 class BookingsController < ApplicationController
   before_action :set_booking, only: :destroy
   def create
-  @booking = Booking.new(booking_params)
-  @bathroom = Bathroom.find(params[:bathroom_id])
+  # @bathroom = Bathroom.create(bathroom_params)
+  # @bathroom.user = current_user
+  # @booking = Booking.new(booking_params)
+  # @bathroom = Bathroom.find(params[:bathroom_id])
 
-  @booking.bathroom = @bathroom
+  # @booking.bathroom = @bathroom
 
+  # @bathroom.user = current_user
+  # @thread = current_user.threads.find params[:id]
+  # @thread.messages.create! :text => params[:text]
     if @booking.save
-      redirect_to @bathroom
+      redirect_to bathroom_bookings_path
     else
       render :new
     end
@@ -30,7 +35,7 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:start_time, :end_time, :user_id, :bathroom_id)
+    params.require(:booking).permit(:start_time, :end_time)
   end
 
 end
