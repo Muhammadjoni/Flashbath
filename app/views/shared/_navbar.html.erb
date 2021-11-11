@@ -3,14 +3,12 @@
     <%= image_tag "https://cdn.shopify.com/s/files/1/0851/1044/files/logo_lb4l2.png?height=628&pad_color=fff&v=1587152931&width=1200" %>
   <% end %>
 
-  <%= link_to "Add a Bathoom", new_bathroom_path, class: "button btn btn-gradient rounded-1" %>
-
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
-
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <%= link_to "Add a Bathoom", new_bathroom_path, class: "btn btn-gradient rounded-2" %>
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
         <li class="nav-item active px-3">

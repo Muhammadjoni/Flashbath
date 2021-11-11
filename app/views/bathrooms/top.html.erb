@@ -1,0 +1,34 @@
+<br>
+<div class="container">
+  <div class="header d-flex my-3">Feedback from our clients</div>
+    <div class="row">
+      <div class="col-12">
+        <div class="cards">
+          <% @bathrooms.each do |bathroom| %>
+                <div class="card">
+                  <div class="card-img" style="background-image:
+                        linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)),
+                        url(<%= cl_image_path bathroom.photos.first.key %>)" >
+                  </div>
+
+                  <div class="card-body">
+                    <h5 class="card-title"><%= bathroom.title %></h5>
+                    <p class="card-text"><p>Very tidy and lovely bathroom equipped with everything you need. Diego is a great host and there when you need him, Very nice and wants to share all hé know about the area. We had a great stay!</p>
+                  </div>
+
+                    <div class="card-body">
+                    <h5 class="card-title"><%= bathroom.title %></h5>
+                    <p class="card-text"><p>Adele's place is perfect for a stay in Chelsea. The location was great. It’s literally a 5 minute walk to the metro station but it’s also very central. To be honest I️ rarely used public transportation because it was always convenient to just walk but when I️ needed to it was right there.</p>
+                  </div>
+
+                    <div class="card-body">
+                    <h5 class="card-title"><%= bathroom.title %></h5>
+                    <p class="card-text"><p>I found this place to be very clean, comfortable, and perfectly sized for one to two people. The bathroom and shower was excellent. You could tell the bathroom is very clean. Furthermore, they clearly explained the area, and also arranged a taxi for me from the apartment to the airport after I checked out. I am looking forward to staying here again one day.</p>
+                  </div>
+                </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
