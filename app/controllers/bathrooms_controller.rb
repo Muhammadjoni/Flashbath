@@ -49,7 +49,6 @@ class BathroomsController < ApplicationController
     else
       @display_form = false
     end
-
     authorize @bathroom
   end
 
@@ -100,5 +99,4 @@ class BathroomsController < ApplicationController
   def bathroom_params
     params.require(:bathroom).permit(:title, :address, :content, :price, photos: [])
   end
-
 end
