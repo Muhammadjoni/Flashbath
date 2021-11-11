@@ -5,6 +5,19 @@ class BathroomsController < ApplicationController
   def index
     @bathrooms = policy_scope(Bathroom).order(created_at: :asc)
 
+    if params[:query].present?
+      # sql_query = " \
+      #   movies.title @@ :query \
+      #   OR movies.syllabus @@ :query \
+      #   OR directors.first_name @@ :query \
+      #   OR directors.last_name @@ :query \
+      # "
+      @results = PgSearch.multisearch(params[:query])
+                         .group_by(&:searchable_type)
+    else
+      @bathrooms = Bathroom.all
+    end
+
     @markers = @bathrooms.map do |bathroom|
       {
         ltd: bathroom.latitude,
@@ -13,6 +26,7 @@ class BathroomsController < ApplicationController
         # image_url: helpers.asset_url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpg6GFI89o13-OgRqluG6HwghoFoLTHomjSA&usqp=CAU')
       }
     end
+
   end
 
   def show
