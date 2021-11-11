@@ -12,8 +12,7 @@ class BathroomsController < ApplicationController
       #   OR directors.first_name @@ :query \
       #   OR directors.last_name @@ :query \
       # "
-      @results = PgSearch.multisearch(params[:query])
-                         .group_by(&:searchable_type)
+      @bathrooms = Bathroom.search(params[:query])
     else
       @bathrooms = Bathroom.all
     end
