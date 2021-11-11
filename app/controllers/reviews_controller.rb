@@ -12,6 +12,10 @@ class ReviewsController < ApplicationController
     end
   end
 
+  def top
+    # your code please....
+  end
+
   private
 
   def review_params
