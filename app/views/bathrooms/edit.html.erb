@@ -6,7 +6,7 @@
             <%= f.input :address %>
             <%= f.input :content %>
             <%= f.input :price %>
-            <%= f.input :photo, as: :file %>
+            <%= f.input :photos, as: :file, input_html: { multiple: true } %>
             <%= f.button :submit, 'Confirm Editing', class: "button btn btn-gradient rounded-1" %>
       <% end %>
     </div>
