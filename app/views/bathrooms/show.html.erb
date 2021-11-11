@@ -1,7 +1,7 @@
 <div class="container mt-5">
   <div class="row justify-content-center">
     <div class="col-12 col-md-6 col-lg-7">
-      <%= cl_image_tag @bathroom.photo.key, class: 'w-100 rounded' %>
+      <%= render 'carousel', bathroom: @bathroom %>
       <h1 class="mt-3"><%= @bathroom.title %></h1>
       <p>
         <strong>📍</strong>
