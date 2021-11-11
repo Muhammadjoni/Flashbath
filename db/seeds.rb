@@ -53,7 +53,6 @@ bathroom_one.photos.attach(io: file, filename: 'bathroom1_3.jpg', content_type: 
 file = URI.open('https://www.thespruce.com/thmb/5WBPo7SuRlA3JyRhbHtZo3g55nM=/2674x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/shower-and-bath-in-modern-bathroom-169271410-5c4cec8d4cedfd0001ddb3fb.jpg')
 bathroom_one.photos.attach(io: file, filename: 'bathroom1_4.jpg', content_type: 'image/jpg')
 
-
 bathroom_one.user = user1
 bathroom_one.save
 ################################################################################
