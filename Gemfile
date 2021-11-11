@@ -46,6 +46,9 @@ gem 'geocoder'
 # Pundit gem
 gem 'pundit'
 
+#Search form (pg-search)
+gem 'pg_search', '~> 2.3.0'
+
 
 group :development, :test do
   gem 'pry-byebug'
