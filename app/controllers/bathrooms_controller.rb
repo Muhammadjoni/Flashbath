@@ -80,9 +80,9 @@ class BathroomsController < ApplicationController
   end
 
   def destroy
-    @bathroom.destroy
-    redirect_to @bathroom
     authorize @bathroom
+    @bathroom.destroy
+    redirect_to my_rents_bathrooms_path
   end
 
   def my_rents

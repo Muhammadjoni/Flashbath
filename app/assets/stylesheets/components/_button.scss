@@ -27,3 +27,19 @@
   background: radial-gradient(#b62f2f, #d83b3b);
 
 }
+
+.btn-delete {
+  background: linear-gradient(#da2c2c, #eb1212);
+  color: white;
+  padding: 8px 10px;
+  border-radius: 4px;
+  font-weight: bold;
+  transition: background 0.3s ease;
+  border: 1px solid #294652;
+}
+
+.btn-delete:hover {
+  background: radial-gradient(#e09595, #cf5454);
+  color: white;
+
+}
