@@ -1,5 +1,6 @@
 class BookingsController < ApplicationController
   before_action :set_booking, only: :destroy
+
   def create
   # @bathroom = Bathroom.create(bathroom_params)
   # @bathroom.user = current_user

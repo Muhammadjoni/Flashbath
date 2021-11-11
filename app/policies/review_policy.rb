@@ -10,6 +10,6 @@ class ReviewPolicy < ApplicationPolicy
   end
 
   def top?
-    return true
+    true
   end
 end
