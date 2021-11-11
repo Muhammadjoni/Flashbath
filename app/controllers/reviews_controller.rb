@@ -13,7 +13,8 @@ class ReviewsController < ApplicationController
   end
 
   def top
-    # your code please....
+    @reviews = Review.where("rating >= ?", 4).first(3)
+    authorize Review.new
   end
 
   private
