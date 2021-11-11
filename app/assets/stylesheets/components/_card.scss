@@ -10,7 +10,15 @@
   height: 210px;
   background-position: center;
   background-size: cover;
+  position: relative;
 }
+
+.star {
+  position: absolute;
+  top: 20px;
+  left: 540px;
+}
+
 .card-body {
   display: flex;
   flex-direction: column;
@@ -71,6 +79,18 @@ h4 {
 h {
   font-weight: bold;
   line-height: 1.5;
+}
+
+h6 {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  color: #E6DDC4;
+  font-size: 26px;
+  background-color: rgba(167, 160, 160, 0.6);
+  padding: 9px;
+  border-radius: 8%;
+
 }
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {

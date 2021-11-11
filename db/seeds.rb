@@ -41,6 +41,7 @@ p bathroom_one = Bathroom.new(
 )
 
 file = URI.open('https://www.thespruce.com/thmb/PNzqg5SKB4TKeODZhH1YS15O6as=/958x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/traditional-bathroom-5a4534b547c2660036c0be70.jpg')
+
 bathroom_one.photos.attach(io: file, filename: 'bathroom1_1.jpg', content_type: 'image/jpg')
 
 file = URI.open('https://www.thespruce.com/thmb/ZB8GkDRg89Qf76rWbEmHNPeYdwc=/1920x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/1438839125447_HERODHicksCleeveCt-smg144504v0.4-57fed91b3df78cbc2888246a.jpg')
@@ -51,6 +52,7 @@ bathroom_one.photos.attach(io: file, filename: 'bathroom1_3.jpg', content_type: 
 
 file = URI.open('https://www.thespruce.com/thmb/5WBPo7SuRlA3JyRhbHtZo3g55nM=/2674x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/shower-and-bath-in-modern-bathroom-169271410-5c4cec8d4cedfd0001ddb3fb.jpg')
 bathroom_one.photos.attach(io: file, filename: 'bathroom1_4.jpg', content_type: 'image/jpg')
+
 
 bathroom_one.user = user1
 bathroom_one.save

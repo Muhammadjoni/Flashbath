@@ -7,7 +7,11 @@ Rails.application.routes.draw do
       get :my_rents
     end
 
-    resources :reviews, only: :create
+    resources :reviews, only: [:create] do
+      collection do
+        get :top
+      end
+    end
 
     resources :bookings, only: :create
   end
