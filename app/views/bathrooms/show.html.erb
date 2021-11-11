@@ -42,6 +42,9 @@
           <% end %>
 
     </div>
+
+    <%# BOOKING SECTION %>
+
     <div class="col-12 col-md-6 col-lg-4">
       <div class="border py-3 px-4 rounded bg-white">
         <h2 class="mb-3"> <del style="opacity: 0.5"> <%= (@bathroom.price + 25) %>€</del> <strong> <%= @bathroom.price %>€</strong><span> / night </span></h2>
@@ -53,11 +56,15 @@
         <% end %>
       </div>
 
+    <%# MAP SECTION  %>
+
       <div class="border top py-3 padding mt-1"
           id="map"
           style="width: 100%; height: 70vh; position: sticky; top: 0"
           data-markers="<%= @markers.to_json %>"
-          data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+          data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
     </div>
+
   </div>
 </div>
