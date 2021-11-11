@@ -8,4 +8,8 @@ class ReviewPolicy < ApplicationPolicy
   def create?
     return true
   end
+
+  def top?
+    return true
+  end
 end
