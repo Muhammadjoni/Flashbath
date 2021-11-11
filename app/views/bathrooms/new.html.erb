@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="row new_bath pt-4">
+  <div class="row new_bath">
     <div class="col-4">
       <%= simple_form_for(@bathroom) do |f| %>
             <%= f.input :title %>
@@ -10,11 +10,15 @@
           <%= f.button :submit, 'Add Your Bathroom',  class: "btn my-btn" %>
         <% end %>
     </div>
-    <div class="col-8 image pl-2">
-      <img src="http://cdn.home-designing.com/wp-content/uploads/2019/01/modern-bathroom-tile.jpg"  alt="bathroom image">
-      <div class="shape shape-start shape-fluid-y text-white">
-        <svg viewBox="0 0 100 1544" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h100v386l-50 772v386H0V0z" fill="currentColor"></path></svg>
-      </div>
+    <div class="col-8 image pl-10">
+      <svg width="80%" height="80%" viewBox="0 0 100 100">
+        <defs>
+          <clipPath id="shape">
+            <path d="M65,10 L100,10 L100,100 L80,100 L0,50z" />
+          </clipPath>
+        </defs>
+        <image clip-path="url(#shape)" xlink:href="http://cdn.home-designing.com/wp-content/uploads/2019/01/modern-bathroom-tile.jpg" x="0" y="0" height="100%" width="100%" />
+      </svg>
     </div>
   </div>
 </div>
