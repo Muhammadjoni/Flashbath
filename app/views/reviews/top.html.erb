@@ -1,1 +1,28 @@
 <%# Add your view code for top review here, please %>
+<br>
+<div class="container">
+  <div class="header d-flex justify-content-center">Feedback from our clients</div>
+  <br>
+    <div class="row">
+      <div class="col-12">
+      <ul>
+        <div class="cards">
+          <% @reviews.each do |review| %>
+                <div class="card">
+                  <div class="card-img" style="background-image:
+                        linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)),
+                        url(<%= cl_image_path review.bathroom.photos.first.key %>)" >
+                  </div>
+
+                  <div class="card-body">
+                    <h5 class="card-title"><%= review.bathroom.title %></h5>
+                    <p class="card-text"> <%= review.comment %></p>
+                  </div>
+                </div>
+          <% end %>
+        </div>
+      </ul>
+      </div>
+    </div>
+  </div>
+</div>
