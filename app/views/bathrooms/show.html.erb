@@ -24,25 +24,28 @@
           </div>
         <% end %>
       <% end %>
-
+  <br>
       <h3>The reviews</h3>
-      <ul>
+
           <% @bathroom.reviews.each do |review| %>
-            <li>
-              <div class="p-2 d-flex justify-content-between align-items-center bg-light">
+
+              <div class="d-flex align-items-center bg-light">
                 <p class="mb-0">
-                  <%= review.rating %>
+                  <h>Name: </h> <%= review.user.first_name %>
+                  <h>rating: </h><%= review.rating %>
+                  <br>
                   <%= review.comment %>
                 </p>
               </div>
-            </li>
+
           <% end %>
-      </ul>
+
     </div>
     <div class="col-12 col-md-6 col-lg-4">
       <div class="border py-3 px-4 rounded bg-white">
         <h2 class="mb-3"> <del style="opacity: 0.5"> <%= (@bathroom.price + 25) %>€</del> <strong> <%= @bathroom.price %>€</strong><span> / night </span></h2>
-        <%= simple_form_for([@bathroom, @booking]) do |f| %>
+          <h4>Average rating: <%= @average %></h4>
+          <%= simple_form_for([@bathroom, @booking]) do |f| %>
           <%= f.input :start_time, as: :string, required: false, input_html: {class: "datepicker"} %>
           <%= f.input :end_time, as: :string, required: false, input_html: {class: "datepicker"} %>
           <%= f.button :submit, 'Book now',  class: "button btn btn-gradient rounded-1" %>

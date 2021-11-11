@@ -51,10 +51,27 @@
 
 a:hover {
   color: #d9edf5
-
 }
 
+h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
 
+h1 {
+  font-size: 2rem;
+  font-weight: 400;
+}
+
+h4 {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+h {
+  font-weight: bold;
+  line-height: 1.5;
+}
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
   .cards {
