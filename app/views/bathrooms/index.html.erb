@@ -1,6 +1,26 @@
 <br>
 <div class="container">
-  <div class="header d-flex justify-content-around my-3"><strong>Our Bathrooms Selection</strong></div>
+  <div class="row">
+    <div class="header d-flex justify-content-around my-3">
+    <strong>Our Bathrooms Selection</strong>
+    </div>
+
+  <%# SEARCH FORM  %>
+    <div class="col-sm-8 offset-sm-2">
+
+      <%= form_tag bathrooms_path, method: :get do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "Find a bathroom"
+        %>
+        <%= submit_tag "Search", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+
+  <%# SEARCH FORM RESULT%>
+  <% if @bathrooms %>
     <div class="row">
       <div class="col-8">
         <div class="cards">
@@ -22,10 +42,35 @@
                   </div>
                 </div>
           <% end %>
+  <% else %>
+          <% @results.each do |type, outputs| %>
+          <h3><%= type %></h3>
+          <% outputs.each do |output| %>
+            <div class="card">
+                  <div class="card-img" style="background-image:
+                        linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)),
+                        url(<%= cl_image_path output.searchable.photo.key %>)" >
+                  </div>
+
+                  <div class="card-body">
+                    <h5 class="card-title"><%= output.searchable.title %></h5>
+                    <p class="card-text"><%= output.searchable.content %></p>
+
+                    <div class="d-flex justify-content-between">
+                      <p class="card-text"><strong><%= output.searchable.price %> € </strong></p>
+                      <%= link_to "Take a bath", bathroom_path(output.searchable), class: "button btn btn-gradient rounded-1" %>
+                    </div>
+                  </div>
+                </div>
+          <% end %>
+        <% end %>
+        <% end %>
         </div>
       </div>
       <div class="col-4">
       <br>
+
+      <%# MAP SECTION %>
         <div
           id="map"
           style="width: 100%; height: 85vh; position: sticky; top: 0"
