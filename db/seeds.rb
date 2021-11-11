@@ -41,8 +41,10 @@ p bathroom_one = Bathroom.new(
 )
 
 file = URI.open('https://www.thespruce.com/thmb/PNzqg5SKB4TKeODZhH1YS15O6as=/958x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/traditional-bathroom-5a4534b547c2660036c0be70.jpg')
+bathroom_one.photos.attach(io: file, filename: 'bathroom1.jpg', content_type: 'image/jpg')
 
-bathroom_one.photo.attach(io: file, filename: 'bathroom1.jpg', content_type: 'image/jpg')
+file = URI.open('https://www.thespruce.com/thmb/PNzqg5SKB4TKeODZhH1YS15O6as=/958x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/traditional-bathroom-5a4534b547c2660036c0be70.jpg')
+bathroom_one.photos.attach(io: file, filename: 'bathroom1.jpg', content_type: 'image/jpg')
 
 bathroom_one.user = user1
 bathroom_one.save
