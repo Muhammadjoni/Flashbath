@@ -4,10 +4,6 @@
   align-items: center;
   justify-content: space-between;
   color: rgba(0,0,0,0.3);
-  position: sticky;
-  height: XXX;
-  bottom: 0;
-  width: 100%;
 }
 .footer-links {
   display: flex;
@@ -20,6 +16,8 @@
   font-size: 24px;
   padding: 0px 10px;
   margin-left: 30px;
+  margin-right: 10px;
+  margin-bottom: 30px;
 }
 .footer-links a:hover {
   opacity: 1;
@@ -28,6 +26,10 @@
   color: #D23333;
 }
 
-.foot-copyright p {
-  text-decoration: underline;
+.footer-copyright {
+  margin-right: 10px;
+  align-items: center;
+  margin-bottom: 30px;
+  padding: 0px 10px;
+  margin-left: 30px;
 }
