@@ -1,14 +1,12 @@
-<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-
+<div id="carouselExampleControls" class="carousel slide position-relative" data-bs-ride="carousel">
   <%# Carousel %>
   <div class="carousel-inner">
     <% bathroom.photos.each_with_index do |photo, index| %>
-
-    <% if index == 0 %>
-      <% active = "active" %>
-    <% else %>
-      <% active = "" %>
-    <% end %>
+      <% if index == 0 %>
+        <% active = "active" %>
+      <% else %>
+        <% active = "" %>
+      <% end %>
 
       <div class="carousel-item <%= active %>">
         <%= cl_image_tag photo.key, class: "d-block w-100"  %>
