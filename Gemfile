@@ -47,7 +47,7 @@ gem 'geocoder'
 gem 'pundit'
 
 #Search form (pg-search)
-gem 'pg_search', '~> 2.3.0'
+gem 'pg_search'
 
 
 group :development, :test do
