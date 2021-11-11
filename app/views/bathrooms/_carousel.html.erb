@@ -1,31 +1,23 @@
-<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-
-  <%# Carousel %>
+<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">
     <% bathroom.photos.each_with_index do |photo, index| %>
+      <% if index == 0 %>
+        <% active = "active" %>
+      <% else %>
+        <% active = "" %>
+      <% end %>
 
-    <% if index == 0 %>
-      <% active = "active" %>
-    <% else %>
-      <% active = "" %>
-    <% end %>
-
-      <div class="carousel-item <%= active %>">
-        <%= cl_image_tag photo.key, class: "d-block w-100"  %>
+      <div class="carousel-item <%= active %>" >
+        <%= cl_image_tag photo.key, class: 'd-block w-100' %>
       </div>
     <% end %>
   </div>
-  <%# End of carousel %>
-
-
-  <%# CONTROL BUTTONS %>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+ <button class="carousel-control-prev" type="button" data-target="#carouselExampleControls" data-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
+    <span class="sr-only">Previous</span>
   </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+  <button class="carousel-control-next" type="button" data-target="#carouselExampleControls" data-slide="next">
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
+    <span class="sr-only">Next</span>
   </button>
-  <%# End COntrol buttons %>
 </div>

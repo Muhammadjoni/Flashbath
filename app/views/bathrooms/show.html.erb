@@ -4,14 +4,9 @@
     <div class="col-12 col-md-6 col-lg-7">
 
       <%= render 'carousel', bathroom: @bathroom %>
-      <h1 class="mt-3"><%= @bathroom.title %></h1>
-      <p>
-        <strong>📍</strong>
-        <%= @bathroom.address %>
-      </p>
-      <p>
-        <%= @bathroom.content %>
-      </p>
+        <h1 class="mt-3"><%= @bathroom.title %></h1>
+        <p> <strong>📍</strong> <%= @bathroom.address %> </p>
+        <p> <%= @bathroom.content %> </p>
 
       <%# REVIEW SECTION %>
       <% if @display_form %>
@@ -26,8 +21,8 @@
           </div>
         <% end %>
       <% end %>
-  <br>
-      <h3 class="mb-3">The reviews</h3>
+
+      <h3 class="mb-3"> ✏️ The Reviews </h3>
 
           <% @bathroom.reviews.each do |review| %>
 
